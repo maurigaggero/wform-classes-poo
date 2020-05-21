@@ -4,7 +4,7 @@ using System.Text;
 
 namespace classlibrary_persona
 {
-    class Alumno : Persona
+    public class Alumno : Persona
     {
         #region Atributos
         private string carrera;

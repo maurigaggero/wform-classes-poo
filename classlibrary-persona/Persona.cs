@@ -2,7 +2,7 @@
 
 namespace classlibrary_persona
 {
-    class Persona
+    public class Persona
     {
         #region Atributos
         private string nombre;
