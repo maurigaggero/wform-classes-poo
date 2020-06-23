@@ -54,9 +54,9 @@ namespace classlibrary_persona
 
 
         #region Métodos
-        public int Edad()
+        public int Edad(int fecha)
         {
-            int edad = (Convert.ToInt32(DateTime.Now.Year)) - Convert.ToInt32(FechNac.Year);
+            int edad = (Convert.ToInt32(DateTime.Now.Year)) - fecha;
             return edad;
         }
         #endregion
