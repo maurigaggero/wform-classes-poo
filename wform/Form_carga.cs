@@ -22,13 +22,14 @@ namespace wform
         public void LimpiarCampos()
         {
             lbl_aviso.Text = "";
+            lbl_edad.Text = "";
 
             txt_nombre.Text = "Nombre";
             txt_nombre.Focus();
             txt_nombre.SelectAll();
 
             txt_dni.Text = "DNI";
-            txt_fecha.Value = DateTime.Now;
+            //txt_fecha.Value = DateTime.Now;
             txt_carr_materia.Text = "Carrera/Materia";
             txt_legajo.Text = "Legajo";
             radio_f.Checked = false;
@@ -46,6 +47,11 @@ namespace wform
             {
                 lbl_aviso.Text = "*Completar campo.";
             }
+            else if (radio_docente.Checked == true && txt_legajo.Text.Any(x => char.IsNumber(x)) ||
+            radio_alumno.Checked == true && txt_legajo.Text.Any(x => !char.IsNumber(x)))
+            {
+                lbl_aviso.Text = "Error en el campo 'Legajo'";
+            }
             else
             {
                 string nombre = txt_nombre.Text;
@@ -54,20 +60,21 @@ namespace wform
                 string matcarr = txt_carr_materia.Text;
                 var legajo = txt_legajo.Text;
 
+
                 if (radio_m.Checked)
                 {
                     char sexo = 'M';
 
-                    if (radio_docente.Checked == true)
+                    if (radio_docente.Checked == true && txt_legajo.Text.Any(x => !char.IsNumber(x)))
                     {
                         Docente d = new Docente(nombre, dni, fechanac, sexo, matcarr, Convert.ToString(legajo));
 
                         dg_datos.Rows.Add(d.Nombre, d.Dni, d.FechNac, d.Sexo, d.Legajo, d.Materia);
 
-                        dg_datos.CurrentRow.DefaultCellStyle.ForeColor = Color.Blue;
-                        dg_datos.CurrentRow.DefaultCellStyle.BackColor = Color.LightBlue;
+                        //dg_datos.CurrentRow.DefaultCellStyle.ForeColor = Color.Blue;
+                        //dg_datos.CurrentRow.DefaultCellStyle.BackColor = Color.LightBlue;
                     }
-                    if (radio_alumno.Checked == true)
+                    if (radio_alumno.Checked == true && txt_legajo.Text.Any(x => char.IsNumber(x)))
                     {
                         Alumno a = new Alumno(nombre, dni, fechanac, sexo, matcarr, Convert.ToInt64(legajo));
 
@@ -78,23 +85,20 @@ namespace wform
                 {
                     char sexo = 'F';
 
-                    if (radio_docente.Checked == true)
+                    if (radio_docente.Checked == true && txt_legajo.Text.Any(x => !char.IsNumber(x)))
                     {
                         Docente d = new Docente(nombre, dni, fechanac, sexo, matcarr, Convert.ToString(legajo));
 
                         dg_datos.Rows.Add(d.Nombre, d.Dni, d.FechNac, d.Sexo, d.Legajo, d.Materia);
-                        
-                        dg_datos.CurrentRow.DefaultCellStyle.ForeColor = Color.Blue;
-                        dg_datos.CurrentRow.DefaultCellStyle.BackColor = Color.LightBlue;
+
                     }
-                    if (radio_alumno.Checked == true)
+                    if (radio_alumno.Checked == true && txt_legajo.Text.Any(x => char.IsNumber(x)))
                     {
                         Alumno a = new Alumno(nombre, dni, fechanac, sexo, matcarr, Convert.ToInt64(legajo));
 
                         dg_datos.Rows.Add(a.Nombre, a.Dni, a.FechNac, a.Sexo, a.Legajo, a.Carrera);
                     }
                 }
-
                 LimpiarCampos();
             }
         }
@@ -144,8 +148,8 @@ namespace wform
             Docente d = new Docente();
 
             int fecha = Convert.ToInt32(txt_fecha.Value.Year);
-            lbl_aviso.Text = "Edad: " + Convert.ToString(d.Edad(fecha));
-            lbl_aviso.Text = "Edad: " + Convert.ToString(a.Edad(fecha));
+            lbl_edad.Text = "Edad: " + Convert.ToString(d.Edad(fecha));
+            lbl_edad.Text = "Edad: " + Convert.ToString(a.Edad(fecha));
         }
 
         #endregion

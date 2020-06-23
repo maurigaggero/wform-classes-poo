@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_persona = new System.Windows.Forms.Panel();
             this.group_sexo = new System.Windows.Forms.GroupBox();
             this.radio_f = new System.Windows.Forms.RadioButton();
@@ -51,6 +51,7 @@
             this.Sexo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Carrera_Materia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbl_edad = new System.Windows.Forms.Label();
             this.panel_persona.SuspendLayout();
             this.group_sexo.SuspendLayout();
             this.panel_condicion.SuspendLayout();
@@ -142,6 +143,7 @@
             // 
             this.panel_condicion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
             this.panel_condicion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_condicion.Controls.Add(this.lbl_edad);
             this.panel_condicion.Controls.Add(this.lbl_aviso);
             this.panel_condicion.Controls.Add(this.group_condicion);
             this.panel_condicion.Controls.Add(this.btn_cargar);
@@ -244,14 +246,14 @@
             this.Sexo,
             this.Legajo,
             this.Carrera_Materia});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dg_datos.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dg_datos.DefaultCellStyle = dataGridViewCellStyle1;
             this.dg_datos.Location = new System.Drawing.Point(58, 481);
             this.dg_datos.MultiSelect = false;
             this.dg_datos.Name = "dg_datos";
@@ -305,6 +307,16 @@
             this.Carrera_Materia.Name = "Carrera_Materia";
             this.Carrera_Materia.Width = 140;
             // 
+            // lbl_edad
+            // 
+            this.lbl_edad.AutoSize = true;
+            this.lbl_edad.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_edad.ForeColor = System.Drawing.Color.Orange;
+            this.lbl_edad.Location = new System.Drawing.Point(56, 231);
+            this.lbl_edad.Name = "lbl_edad";
+            this.lbl_edad.Size = new System.Drawing.Size(0, 23);
+            this.lbl_edad.TabIndex = 11;
+            // 
             // Form_carga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -356,6 +368,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sexo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Legajo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Carrera_Materia;
+        private System.Windows.Forms.Label lbl_edad;
     }
 }
 
