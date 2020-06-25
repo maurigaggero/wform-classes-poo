@@ -4,7 +4,7 @@ using System.Text;
 
 namespace classlibrary_persona
 {
-    public class Docente : Alumno
+    public class Docente : Persona
     {
         #region Atributos
         private string materia;
@@ -17,7 +17,7 @@ namespace classlibrary_persona
             get { return materia; }
             set { materia = value; }
         }
-        public new string Legajo
+        public string Legajo
         {
             get { return legajo; }
             set { legajo = value; }
