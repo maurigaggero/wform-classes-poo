@@ -423,7 +423,7 @@ namespace wform
 
         private void txt_carr_materia_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
             {
                 lbl_aviso.Text = "*Solo se permiten letras";
                 e.Handled = true;
