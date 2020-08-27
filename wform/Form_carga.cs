@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using classlibrary_persona;
+using Negocios;
 
 namespace wform
 {
@@ -19,6 +20,18 @@ namespace wform
         }
 
         #region METODOS
+        public Alumno objAlumno = new Alumno();
+
+        public NegAlumnos objNegAlumno = new NegAlumnos();
+
+        public Docente objDocente = new Docente();
+
+        public NegDocentes objNegDocente = new NegDocentes();
+
+        /////////////////////////////////
+
+        public int funcion = 0;
+
         public void LimpiarCampos()
         {
             lbl_aviso.Text = "";
@@ -29,7 +42,6 @@ namespace wform
             txt_nombre.SelectAll();
 
             txt_dni.Text = "DNI";
-            //txt_fecha.Value = DateTime.Now;
             txt_carr_materia.Text = "Carrera/Materia";
             txt_legajo.Text = "Legajo";
             radio_f.Checked = false;
@@ -37,6 +49,7 @@ namespace wform
             radio_alumno.Checked = false;
             radio_docente.Checked = false;
         }
+
 
         public void Cargar()
         {
@@ -67,18 +80,95 @@ namespace wform
 
                     if (radio_docente.Checked == true && txt_legajo.Text.Any(x => !char.IsNumber(x)))
                     {
-                        Docente d = new Docente(nombre, dni, fechanac, sexo, matcarr, Convert.ToString(legajo));
+                        objDocente.Dni = dni;
+                        objDocente.Nombre = nombre;
+                        objDocente.FechNac = fechanac;
+                        objDocente.Sexo = sexo;
+                        objDocente.Materia = matcarr;
+                        objDocente.Legajo = legajo;
 
-                        dg_datos.Rows.Add(d.Nombre, d.Dni, d.FechNac, d.Sexo, d.Legajo, d.Materia);
+                        if (funcion == 1)
+                        {
+                            objNegDocente.abmDocentes("Agregar", objDocente);
 
-                        //dg_datos.CurrentRow.DefaultCellStyle.ForeColor = Color.Blue;
-                        //dg_datos.CurrentRow.DefaultCellStyle.BackColor = Color.LightBlue;
+                            LlenarDg_Docentes();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se grabó con éxito!";
+
+                            funcion = 0;
+                        }
+
+
+                        if (funcion == 2)
+                        {
+                            objNegDocente.abmDocentes("Modificar", objDocente);
+
+                            LlenarDg_Docentes();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se editó con éxito!";
+
+                            funcion = 0;
+                        }
+
+                        if (funcion == 3)
+                        {
+                            objNegDocente.abmDocentes("Eliminar", objDocente);
+
+                            LlenarDg_Docentes();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se eliminó con éxito!";
+
+                            funcion = 0;
+                        }
                     }
                     if (radio_alumno.Checked == true && txt_legajo.Text.Any(x => char.IsNumber(x)))
                     {
-                        Alumno a = new Alumno(nombre, dni, fechanac, sexo, matcarr, Convert.ToInt64(legajo));
+                        objAlumno.Dni = dni;
+                        objAlumno.Nombre = nombre;
+                        objAlumno.FechNac = fechanac;
+                        objAlumno.Sexo = sexo;
+                        objAlumno.Carrera = matcarr;
+                        objAlumno.Legajo = Convert.ToInt64(legajo);
 
-                        dg_datos.Rows.Add(a.Nombre, a.Dni, a.FechNac, a.Sexo, a.Legajo, a.Carrera);
+                        if (funcion == 1)
+                        {
+                            objNegAlumno.abmAlumnos("Agregar", objAlumno);
+
+                            LlenarDg_Alumnos();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se grabó con éxito!";
+
+                            funcion = 0;
+                        }
+
+
+                        if (funcion == 2)
+                        {
+                            objNegAlumno.abmAlumnos("Modificar", objAlumno);
+
+                            LlenarDg_Alumnos();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se editó con éxito!";
+
+                            funcion = 0;
+                        }
+
+                        if (funcion == 3)
+                        {
+                            objNegAlumno.abmAlumnos("Eliminar", objAlumno);
+
+                            LlenarDg_Alumnos();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se eliminó con éxito!";
+
+                            funcion = 0;
+                        }
                     }
                 }
                 if (radio_f.Checked)
@@ -87,19 +177,126 @@ namespace wform
 
                     if (radio_docente.Checked == true && txt_legajo.Text.Any(x => !char.IsNumber(x)))
                     {
-                        Docente d = new Docente(nombre, dni, fechanac, sexo, matcarr, Convert.ToString(legajo));
+                        objDocente.Dni = dni;
+                        objDocente.Nombre = nombre;
+                        objDocente.FechNac = fechanac;
+                        objDocente.Sexo = sexo;
+                        objDocente.Materia = matcarr;
+                        objDocente.Legajo = legajo;
 
-                        dg_datos.Rows.Add(d.Nombre, d.Dni, d.FechNac, d.Sexo, d.Legajo, d.Materia);
+                        if (funcion == 1)
+                        {
+                            objNegDocente.abmDocentes("Agregar", objDocente);
+
+                            LlenarDg_Docentes();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se grabó con éxito!";
+
+                            funcion = 0;
+                        }
+
+
+                        if (funcion == 2)
+                        {
+                            objNegDocente.abmDocentes("Modificar", objDocente);
+
+                            LlenarDg_Docentes();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se editó con éxito!";
+
+                            funcion = 0;
+                        }
+
+                        if (funcion == 3)
+                        {
+                            objNegDocente.abmDocentes("Eliminar", objDocente);
+
+                            LlenarDg_Docentes();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se eliminó con éxito!";
+
+                            funcion = 0;
+                        }
 
                     }
                     if (radio_alumno.Checked == true && txt_legajo.Text.Any(x => char.IsNumber(x)))
                     {
-                        Alumno a = new Alumno(nombre, dni, fechanac, sexo, matcarr, Convert.ToInt64(legajo));
+                        objAlumno.Dni = dni;
+                        objAlumno.Nombre = nombre;
+                        objAlumno.FechNac = fechanac;
+                        objAlumno.Sexo = sexo;
+                        objAlumno.Carrera = matcarr;
+                        objAlumno.Legajo = Convert.ToInt64(legajo);
 
-                        dg_datos.Rows.Add(a.Nombre, a.Dni, a.FechNac, a.Sexo, a.Legajo, a.Carrera);
+                        if (funcion == 1)
+                        {
+                            objNegAlumno.abmAlumnos("Agregar", objAlumno);
+
+                            LlenarDg_Alumnos();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se grabó con éxito!";
+
+                            funcion = 0;
+                        }
+
+
+                        if (funcion == 2)
+                        {
+                            objNegAlumno.abmAlumnos("Modificar", objAlumno);
+
+                            LlenarDg_Alumnos();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se editó con éxito!";
+
+                            funcion = 0;
+                        }
+
+                        if (funcion == 3)
+                        {
+                            objNegAlumno.abmAlumnos("Eliminar", objAlumno);
+
+                            LlenarDg_Alumnos();
+                            LimpiarCampos();
+
+                            lbl_aviso.Text = "Se eliminó con éxito!";
+
+                            funcion = 0;
+                        }
                     }
                 }
-                LimpiarCampos();
+            }
+        }
+
+        private void LlenarDg_Docentes()
+        {
+            dg_datos.Rows.Clear();
+            DataSet ds = new DataSet();
+            ds = objNegDocente.listadoDocentes("Todos");
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    dg_datos.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4], dr[5]);
+                }
+            }
+        }
+
+        private void LlenarDg_Alumnos()
+        {
+            dg_datos.Rows.Clear();
+            DataSet ds = new DataSet();
+            ds = objNegAlumno.listadoAlumnos("Todos");
+            if (ds.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow dr in ds.Tables[0].Rows)
+                {
+                    dg_datos.Rows.Add(dr[0], dr[1], dr[2], dr[3], dr[4], dr[5]);
+                }
             }
         }
 
@@ -114,8 +311,8 @@ namespace wform
                 radio_m.Checked = true;
             }
 
-            txt_nombre.Text = dg_datos.CurrentRow.Cells[0].Value.ToString();
-            txt_dni.Text = dg_datos.CurrentRow.Cells[1].Value.ToString();
+            txt_dni.Text = dg_datos.CurrentRow.Cells[0].Value.ToString();
+            txt_nombre.Text = dg_datos.CurrentRow.Cells[1].Value.ToString();
             txt_fecha.Value = Convert.ToDateTime(dg_datos.CurrentRow.Cells[2].Value.ToString());
             txt_legajo.Text = dg_datos.CurrentRow.Cells[4].Value.ToString();
             txt_carr_materia.Text = dg_datos.CurrentRow.Cells[5].Value.ToString();
@@ -134,12 +331,59 @@ namespace wform
         #region EVENTOS
         private void btn_cargar_Click(object sender, EventArgs e)
         {
+            funcion = 1;
+
             Cargar();
         }
 
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+            funcion = 2;
+
+            Cargar();
+        }
+
+        private void btn_eliminar_Click(object sender, EventArgs e)
+        {
+            funcion = 3;
+
+            Cargar();
+        }
+
+        private void btn_fdocente_Click(object sender, EventArgs e)
+        {
+            LlenarDg_Docentes();
+        }
+        private void btn_falumno_Click(object sender, EventArgs e)
+        {
+            LlenarDg_Alumnos();
+        }
+        private void btn_limpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarCampos();
+        }
         private void dg_datos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             GridToBox();
+        }
+
+        public int flag = 0;
+        private void btn_ocultar_Click(object sender, EventArgs e)
+        {
+            if (flag == 1)
+            {
+                this.Width -= 300;
+                flag -= 1;
+            }
+        }
+
+        private void btn_mostrar_Click(object sender, EventArgs e)
+        {
+            if (flag == 0)
+            {
+                this.Width += 300;
+                flag += 1;
+            }
         }
 
         private void txt_fecha_ValueChanged(object sender, EventArgs e)

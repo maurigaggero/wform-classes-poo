@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wform", "wform\wform.csproj", "{3AC6257E-4BF4-4CFE-91D2-F81896F71B87}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "classlibrary-persona", "classlibrary-persona\classlibrary-persona.csproj", "{8BA438DE-AB05-48C1-B0A3-E428659F0F82}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "classlibrary-persona", "classlibrary-persona\classlibrary-persona.csproj", "{8BA438DE-AB05-48C1-B0A3-E428659F0F82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Datos", "Datos\Datos.csproj", "{B6A2553A-9B3A-472B-8390-E00DAE2F6077}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocios", "Negocios\Negocios.csproj", "{A6ABA328-FD78-43FB-BCF6-D786D9AD85C7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{8BA438DE-AB05-48C1-B0A3-E428659F0F82}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8BA438DE-AB05-48C1-B0A3-E428659F0F82}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8BA438DE-AB05-48C1-B0A3-E428659F0F82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6A2553A-9B3A-472B-8390-E00DAE2F6077}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6A2553A-9B3A-472B-8390-E00DAE2F6077}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6A2553A-9B3A-472B-8390-E00DAE2F6077}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6A2553A-9B3A-472B-8390-E00DAE2F6077}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A6ABA328-FD78-43FB-BCF6-D786D9AD85C7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A6ABA328-FD78-43FB-BCF6-D786D9AD85C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A6ABA328-FD78-43FB-BCF6-D786D9AD85C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A6ABA328-FD78-43FB-BCF6-D786D9AD85C7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
