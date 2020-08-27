@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_persona = new System.Windows.Forms.Panel();
+            this.btn_limpiar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
             this.btn_editar = new System.Windows.Forms.Button();
             this.btn_ocultar = new System.Windows.Forms.Button();
@@ -57,7 +58,6 @@
             this.btn_mostrar = new System.Windows.Forms.Button();
             this.btn_docente = new System.Windows.Forms.Button();
             this.btn_alumno = new System.Windows.Forms.Button();
-            this.btn_limpiar = new System.Windows.Forms.Button();
             this.panel_persona.SuspendLayout();
             this.group_condicion.SuspendLayout();
             this.group_sexo.SuspendLayout();
@@ -85,6 +85,17 @@
             this.panel_persona.Name = "panel_persona";
             this.panel_persona.Size = new System.Drawing.Size(301, 808);
             this.panel_persona.TabIndex = 0;
+            // 
+            // btn_limpiar
+            // 
+            this.btn_limpiar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_limpiar.Location = new System.Drawing.Point(3, 614);
+            this.btn_limpiar.Name = "btn_limpiar";
+            this.btn_limpiar.Size = new System.Drawing.Size(104, 56);
+            this.btn_limpiar.TabIndex = 15;
+            this.btn_limpiar.Text = "Limpiar campos";
+            this.btn_limpiar.UseVisualStyleBackColor = true;
+            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // btn_eliminar
             // 
@@ -290,17 +301,18 @@
             this.Sexo,
             this.Legajo,
             this.Carrera_Materia});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dg_datos.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dg_datos.DefaultCellStyle = dataGridViewCellStyle1;
             this.dg_datos.Location = new System.Drawing.Point(29, 108);
             this.dg_datos.MultiSelect = false;
             this.dg_datos.Name = "dg_datos";
+            this.dg_datos.ReadOnly = true;
             this.dg_datos.RowHeadersVisible = false;
             this.dg_datos.RowHeadersWidth = 51;
             this.dg_datos.RowTemplate.Height = 24;
@@ -314,36 +326,42 @@
             this.DNI.HeaderText = "DNI";
             this.DNI.MinimumWidth = 6;
             this.DNI.Name = "DNI";
+            this.DNI.ReadOnly = true;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.MinimumWidth = 6;
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             // 
             // Fecha_Nac
             // 
             this.Fecha_Nac.HeaderText = "Fecha_Nac";
             this.Fecha_Nac.MinimumWidth = 6;
             this.Fecha_Nac.Name = "Fecha_Nac";
+            this.Fecha_Nac.ReadOnly = true;
             // 
             // Sexo
             // 
             this.Sexo.HeaderText = "Sexo";
             this.Sexo.MinimumWidth = 6;
             this.Sexo.Name = "Sexo";
+            this.Sexo.ReadOnly = true;
             // 
             // Legajo
             // 
             this.Legajo.HeaderText = "Legajo";
             this.Legajo.MinimumWidth = 6;
             this.Legajo.Name = "Legajo";
+            this.Legajo.ReadOnly = true;
             // 
             // Carrera_Materia
             // 
             this.Carrera_Materia.HeaderText = "Carrera_Materia";
             this.Carrera_Materia.MinimumWidth = 6;
             this.Carrera_Materia.Name = "Carrera_Materia";
+            this.Carrera_Materia.ReadOnly = true;
             // 
             // btn_mostrar
             // 
@@ -377,17 +395,6 @@
             this.btn_alumno.Text = "Mostrar registro alumnos";
             this.btn_alumno.UseVisualStyleBackColor = true;
             this.btn_alumno.Click += new System.EventHandler(this.btn_falumno_Click);
-            // 
-            // btn_limpiar
-            // 
-            this.btn_limpiar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_limpiar.Location = new System.Drawing.Point(3, 614);
-            this.btn_limpiar.Name = "btn_limpiar";
-            this.btn_limpiar.Size = new System.Drawing.Size(104, 56);
-            this.btn_limpiar.TabIndex = 15;
-            this.btn_limpiar.Text = "Limpiar campos";
-            this.btn_limpiar.UseVisualStyleBackColor = true;
-            this.btn_limpiar.Click += new System.EventHandler(this.btn_limpiar_Click);
             // 
             // Form_carga
             // 
