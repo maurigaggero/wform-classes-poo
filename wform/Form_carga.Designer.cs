@@ -275,7 +275,7 @@
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(256, 30);
             this.txt_nombre.TabIndex = 4;
-            this.txt_nombre.Text = "Nombre";
+            this.txt_nombre.Text = "Nombre y Apellido";
             this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_KeyPress);
             // 
             // txt_legajo
@@ -401,7 +401,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(776, 857);
+            this.ClientSize = new System.Drawing.Size(775, 857);
             this.Controls.Add(this.btn_alumno);
             this.Controls.Add(this.btn_docente);
             this.Controls.Add(this.btn_mostrar);

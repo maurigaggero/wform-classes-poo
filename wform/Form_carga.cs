@@ -37,7 +37,7 @@ namespace wform
             lbl_aviso.Text = "";
             lbl_edad.Text = "";
 
-            txt_nombre.Text = "Nombre";
+            txt_nombre.Text = "Nombre y Apellido";
             txt_nombre.Focus();
             txt_nombre.SelectAll();
 
@@ -53,7 +53,7 @@ namespace wform
 
         public void Cargar()
         {
-            if (txt_nombre.Text == "Nombre" || txt_dni.Text == "DNI" ||
+            if (txt_nombre.Text == "Nombre y Apellido" || txt_dni.Text == "DNI" ||
                 txt_carr_materia.Text == "Carrera/Materia" || txt_legajo.Text == "Legajo" ||
                 radio_alumno.Checked == false && radio_docente.Checked == false ||
                 radio_f.Checked == false && radio_m.Checked == false)
