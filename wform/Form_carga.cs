@@ -411,6 +411,8 @@ namespace wform
 
         private void txt_dni_KeyPress(object sender, KeyPressEventArgs e)
         {
+            txt_dni.MaxLength = 8;
+
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 lbl_aviso.Text = "*Solo se permiten números";
