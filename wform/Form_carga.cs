@@ -78,11 +78,7 @@ namespace wform
                     }
 
                     LlenarDg_Docentes("Todos");
-                    LimpiarCampos();
-
-                    lbl_aviso.Text = "Se actualizó DB con éxito!";
-
-                    funcion = 0;
+                    
                     break;
 
                 case "alumno":
@@ -109,13 +105,14 @@ namespace wform
                     }
 
                     LlenarDg_Alumnos("Todos");
-                    LimpiarCampos();
 
-                    lbl_aviso.Text = "Se actualizó DB con éxito!";
-
-                    funcion = 0;
                     break;
             }
+            LimpiarCampos();
+
+            lbl_aviso.Text = "Se actualizó DB con éxito!";
+
+            funcion = 0;
         }
 
         public void Cargar()
@@ -134,33 +131,33 @@ namespace wform
             }
             else
             {
-                if (radio_m.Checked)
+                if(radio_docente.Checked == true && txt_legajo.Text.Any(x => !char.IsNumber(x)))
                 {
-                    if (radio_docente.Checked == true && txt_legajo.Text.Any(x => !char.IsNumber(x)))
+                    if(radio_m.Checked)
                     {
                         string condicion = "docente";
                         Cargar(txt_nombre.Text, txt_dni.Text, txt_fecha.Value, 'M'/*sexo*/,
                             txt_carr_materia.Text, txt_legajo.Text, condicion);
                     }
-                    if (radio_alumno.Checked == true && txt_legajo.Text.Any(x => char.IsNumber(x)))
-                    {
-                        string condicion = "alumno";
-                        Cargar(txt_nombre.Text, txt_dni.Text, txt_fecha.Value, 'M'/*sexo*/,
-                            txt_carr_materia.Text, txt_legajo.Text, condicion);
-                    }
-                }
-                if (radio_f.Checked)
-                {
-                    if (radio_docente.Checked == true && txt_legajo.Text.Any(x => !char.IsNumber(x)))
+                    if (radio_f.Checked)
                     {
                         string condicion = "docente";
                         Cargar(txt_nombre.Text, txt_dni.Text, txt_fecha.Value, 'F'/*sexo*/,
                             txt_carr_materia.Text, txt_legajo.Text, condicion);
                     }
-                    if (radio_alumno.Checked == true && txt_legajo.Text.Any(x => char.IsNumber(x)))
+                }
+                if(radio_alumno.Checked == true && txt_legajo.Text.Any(x => char.IsNumber(x)))
+                {
+                    if (radio_m.Checked)
                     {
                         string condicion = "alumno";
                         Cargar(txt_nombre.Text, txt_dni.Text, txt_fecha.Value, 'M'/*sexo*/,
+                            txt_carr_materia.Text, txt_legajo.Text, condicion);
+                    }
+                    if (radio_f.Checked)
+                    {
+                        string condicion = "alumno";
+                        Cargar(txt_nombre.Text, txt_dni.Text, txt_fecha.Value, 'F'/*sexo*/,
                             txt_carr_materia.Text, txt_legajo.Text, condicion);
                     }
                 }
@@ -195,7 +192,6 @@ namespace wform
                     }
                 }
             }
-
         }
 
         private void LlenarDg_Alumnos(string cual)
