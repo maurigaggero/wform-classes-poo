@@ -17,15 +17,16 @@ namespace Datos
             string orden = string.Empty;
 
             if (accion == "Agregar")
-                orden = "insert into Alumnos " +
-                  "values ("
+                orden = "begin if not exists (select Dni from Alumnos where Dni = " + objAlumno.Dni + ")"
+                   + "begin insert into Alumnos " +
+                   "values ("
                     + "'" + objAlumno.Dni + "',"
                     + "'" + objAlumno.Nombre + "',"
                     + "'" + objAlumno.FechNac + "',"
                     + "'" + objAlumno.Sexo + "',"
                     + "'" + objAlumno.Legajo + "',"
-                    + "'" + objAlumno.Carrera + "'"
-                 + ");";
+                    + "'" + objAlumno.Carrera + "') "
+                 + "end end";
 
             if (accion == "Modificar")
                 orden = "update Alumnos set "
@@ -93,4 +94,4 @@ namespace Datos
     }
 }
 
-    
+
