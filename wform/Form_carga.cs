@@ -78,7 +78,7 @@ namespace wform
                     }
 
                     LlenarDg_Docentes("Todos");
-                    
+
                     break;
 
                 case "alumno":
@@ -110,7 +110,7 @@ namespace wform
             }
             LimpiarCampos();
 
-            lbl_aviso.Text = "Se actualizó DB con éxito!";
+            lbl_aviso.Text = "Se actualizaron los registros de base de datos con éxito!";
 
             funcion = 0;
         }
@@ -122,7 +122,7 @@ namespace wform
                 radio_alumno.Checked == false && radio_docente.Checked == false ||
                 radio_f.Checked == false && radio_m.Checked == false)
             {
-                lbl_aviso.Text = "*Completar campo.";
+                lbl_aviso.Text = "*Hay campos incompletos. Completar campo.";
             }
             else if (radio_docente.Checked == true && txt_legajo.Text.Any(x => char.IsNumber(x)) ||
             radio_alumno.Checked == true && txt_legajo.Text.Any(x => !char.IsNumber(x)))
@@ -131,9 +131,9 @@ namespace wform
             }
             else
             {
-                if(radio_docente.Checked == true && txt_legajo.Text.Any(x => !char.IsNumber(x)))
+                if (radio_docente.Checked == true && txt_legajo.Text.Any(x => !char.IsNumber(x)))
                 {
-                    if(radio_m.Checked)
+                    if (radio_m.Checked)
                     {
                         string condicion = "docente";
                         Cargar(txt_nombre.Text, txt_dni.Text, txt_fecha.Value, 'M'/*sexo*/,
@@ -146,7 +146,7 @@ namespace wform
                             txt_carr_materia.Text, txt_legajo.Text, condicion);
                     }
                 }
-                if(radio_alumno.Checked == true && txt_legajo.Text.Any(x => char.IsNumber(x)))
+                if (radio_alumno.Checked == true && txt_legajo.Text.Any(x => char.IsNumber(x)))
                 {
                     if (radio_m.Checked)
                     {
@@ -269,9 +269,14 @@ namespace wform
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            funcion = 3;
-
-            Cargar();
+            DialogResult result = MessageBox.Show("¿Seguro/a desea eliminar este registro de la DB?", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            switch (result)
+            {
+                case DialogResult.Yes:
+                    funcion = 3;
+                    Cargar();
+                    break;
+            }
         }
 
         private void btn_fdocente_Click(object sender, EventArgs e)
@@ -334,8 +339,8 @@ namespace wform
             Docente d = new Docente();
 
             int fecha = Convert.ToInt32(txt_fecha.Value.Year);
-            lbl_edad.Text = "Edad: " + Convert.ToString(d.Edad(fecha));
-            lbl_edad.Text = "Edad: " + Convert.ToString(a.Edad(fecha));
+            lbl_edad.Text = "Edad: " + Convert.ToString(d.Edad(fecha)) + " años.";
+            lbl_edad.Text = "Edad: " + Convert.ToString(a.Edad(fecha)) + " años.";
         }
 
         #endregion
@@ -345,7 +350,7 @@ namespace wform
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
             {
-                lbl_aviso.Text = "*Solo se permiten letras";
+                lbl_aviso.Text = "*Solo se permiten letras en campo Nombre y Apellido";
                 e.Handled = true;
                 return;
             }
@@ -357,7 +362,7 @@ namespace wform
 
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                lbl_aviso.Text = "*Solo se permiten números";
+                lbl_aviso.Text = "*Solo se permiten números en campo DNI";
                 e.Handled = true;
                 return;
             }
@@ -367,7 +372,7 @@ namespace wform
         {
             if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
             {
-                lbl_aviso.Text = "*Solo se permiten letras";
+                lbl_aviso.Text = "*Solo se permiten letras en campo Carrera/Materia";
                 e.Handled = true;
                 return;
             }
@@ -379,7 +384,7 @@ namespace wform
 
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
-                lbl_aviso.Text = "*Solo se permiten números";
+                lbl_aviso.Text = "*Solo se permiten números al filtrar DNI";
                 e.Handled = true;
                 return;
             }
@@ -391,7 +396,7 @@ namespace wform
             {
                 if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
                 {
-                    lbl_aviso.Text = "*Solo se permiten números";
+                    lbl_aviso.Text = "*Solo se permiten números en campo legajo";
                     e.Handled = true;
                     return;
                 }
@@ -400,7 +405,7 @@ namespace wform
             {
                 if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
                 {
-                    lbl_aviso.Text = "*Solo se permiten letras";
+                    lbl_aviso.Text = "*Solo se permiten letras en campo legajo";
                     e.Handled = true;
                     return;
                 }
