@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_persona = new System.Windows.Forms.Panel();
             this.btn_limpiar = new System.Windows.Forms.Button();
             this.btn_eliminar = new System.Windows.Forms.Button();
@@ -58,6 +58,8 @@
             this.btn_mostrar = new System.Windows.Forms.Button();
             this.btn_docente = new System.Windows.Forms.Button();
             this.btn_alumno = new System.Windows.Forms.Button();
+            this.txt_filtro = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel_persona.SuspendLayout();
             this.group_condicion.SuspendLayout();
             this.group_sexo.SuspendLayout();
@@ -301,15 +303,15 @@
             this.Sexo,
             this.Legajo,
             this.Carrera_Materia});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dg_datos.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dg_datos.Location = new System.Drawing.Point(29, 108);
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dg_datos.DefaultCellStyle = dataGridViewCellStyle7;
+            this.dg_datos.Location = new System.Drawing.Point(30, 159);
             this.dg_datos.MultiSelect = false;
             this.dg_datos.Name = "dg_datos";
             this.dg_datos.ReadOnly = true;
@@ -317,7 +319,7 @@
             this.dg_datos.RowHeadersWidth = 51;
             this.dg_datos.RowTemplate.Height = 24;
             this.dg_datos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dg_datos.Size = new System.Drawing.Size(710, 585);
+            this.dg_datos.Size = new System.Drawing.Size(710, 548);
             this.dg_datos.TabIndex = 5;
             this.dg_datos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dg_datos_CellContentClick);
             // 
@@ -396,12 +398,34 @@
             this.btn_alumno.UseVisualStyleBackColor = true;
             this.btn_alumno.Click += new System.EventHandler(this.btn_falumno_Click);
             // 
+            // txt_filtro
+            // 
+            this.txt_filtro.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_filtro.Location = new System.Drawing.Point(256, 119);
+            this.txt_filtro.Name = "txt_filtro";
+            this.txt_filtro.Size = new System.Drawing.Size(233, 30);
+            this.txt_filtro.TabIndex = 16;
+            this.txt_filtro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_filtro_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(26, 122);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(204, 23);
+            this.label1.TabIndex = 18;
+            this.label1.Text = "Filtrar búsqueda por DNI:";
+            // 
             // Form_carga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.ClientSize = new System.Drawing.Size(775, 857);
+            this.ClientSize = new System.Drawing.Size(777, 857);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txt_filtro);
             this.Controls.Add(this.btn_alumno);
             this.Controls.Add(this.btn_docente);
             this.Controls.Add(this.btn_mostrar);
@@ -420,6 +444,7 @@
             this.group_sexo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dg_datos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -454,6 +479,8 @@
         private System.Windows.Forms.Button btn_docente;
         private System.Windows.Forms.Button btn_alumno;
         private System.Windows.Forms.Button btn_limpiar;
+        private System.Windows.Forms.TextBox txt_filtro;
+        private System.Windows.Forms.Label label1;
     }
 }
 
